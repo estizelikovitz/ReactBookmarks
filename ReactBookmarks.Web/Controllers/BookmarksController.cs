@@ -124,6 +124,13 @@ namespace ReactBookmarks.Web.Controllers
             repo.DeleteBookmark(bookmark);
         }
 
+        [HttpPost]
+        [Route("updatebookmark")]
+        public void UpdateBookmark(Bookmark bookmark)
+        {
+            var repo = new Repository(_connectionString);
+            repo.UpdateBookmark(bookmark);
+        }
 
     }
 }

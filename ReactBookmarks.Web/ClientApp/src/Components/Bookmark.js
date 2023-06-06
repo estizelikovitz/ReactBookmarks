@@ -4,23 +4,23 @@ import axios from 'axios';
 
 
 
-const Bookmark = ({ bookmark, deleteClick, editIds, editClick, updateClick, cancelClick }) => {
+const Bookmark = ({ bookmark, deleteClick, editClick, editMode, updateClick, cancelClick, onTitleChange }) => {
 
     const { title, url, id } = bookmark;
-    const [editMode, setEditMode] = useState(false);
+    //const [editMode, setEditMode] = useState(false);
 
-    useEffect(() => {
-        { console.log(editIds.includes(id)) }
-        {console.log(editIds)}
-        if (editIds.includes(id)) {
-            setEditMode(true);
-        }
-    }, []);
+    //useEffect(() => {
+    //    { console.log(editIds.includes(id)) }
+    //    {console.log(editIds)}
+    //    if (editIds.includes(id)) {
+    //        setEditMode(true);
+    //    }
+    //}, []);
 
     return (
         <>
             <tr>
-                {editMode && <td> <input type="text" className="form-control" placeholder="Title" value={title}/></td>}
+                {editMode && <td> <input type="text" className="form-control" placeholder="Title" value={title} onChange={onTitleChange}/></td>}
                 {!editMode && <td>{title}</td>}
 
                 <td>

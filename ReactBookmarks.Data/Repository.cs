@@ -28,6 +28,13 @@ namespace ReactBookmarks.Data
             context.SaveChanges();
         }
 
+        public void UpdateBookmark(Bookmark bookmark)
+        {
+            using var context = new DataContext(_connectionString);
+            context.Bookmarks.Update(bookmark);
+            context.SaveChanges();
+        }
+
         public void DeleteBookmark(Bookmark bookmark)
         {
             using var context = new DataContext(_connectionString);
